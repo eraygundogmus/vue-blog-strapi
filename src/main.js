@@ -1,17 +1,19 @@
 import { createApp, provide, h } from "vue";
 import { DefaultApolloClient } from "@vue/apollo-composable";
-import apolloClient from "./apollo";
+import ApolloClient from "apollo-boost";
 import { createRouter, createWebHashHistory } from "vue-router";
 import Articles from "./components/Articles.vue";
 import App from "./App.vue";
 
 const routes = [{ path: "/", component: Articles }];
 const router = createRouter({
-  // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
   history: createWebHashHistory(),
-  routes, // short for `routes: routes`
+  routes,
 });
 
+const apolloClient = new ApolloClient({
+  uri: "http://localhost:1337/graphql",
+});
 const app = createApp({
   setup() {
     provide(DefaultApolloClient, apolloClient);

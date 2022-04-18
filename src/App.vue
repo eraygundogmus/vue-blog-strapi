@@ -6,7 +6,7 @@ import Nav from "./components/Nav.vue";
 
 <template>
   <div id="app">
-    <Nav />
+    <!-- <Nav /> -->
     <router-view :key="$route.fullPath"></router-view>
   </div>
 </template>
