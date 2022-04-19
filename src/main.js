@@ -1,15 +1,9 @@
+import App from "./App.vue";
 import { createApp, provide, h } from "vue";
 import { DefaultApolloClient } from "@vue/apollo-composable";
 import ApolloClient from "apollo-boost";
-import { createRouter, createWebHashHistory } from "vue-router";
-import Articles from "./components/Articles.vue";
-import App from "./App.vue";
-
-const routes = [{ path: "/", component: Articles }];
-const router = createRouter({
-  history: createWebHashHistory(),
-  routes,
-});
+import router from "./router";
+import { createPinia } from "pinia";
 
 const apolloClient = new ApolloClient({
   uri: "http://localhost:1337/graphql",
@@ -22,4 +16,5 @@ const app = createApp({
   render: () => h(App),
 });
 app.use(router);
+app.use(createPinia());
 app.mount("#app");

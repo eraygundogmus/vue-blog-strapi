@@ -68,7 +68,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, computed } from "vue";
+import { computed } from "vue";
 const props = defineProps({
   articles: {
     type: Array,
