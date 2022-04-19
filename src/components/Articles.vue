@@ -3,53 +3,49 @@
     <div class="uk-section">
       <div class="uk-container uk-container-large">
         <h1>Strapi blog</h1>
-        {{ articles }}
-        <!-- <ArticlesList :articles="articles"></ArticlesList> -->
+        <ArticlesList
+          v-if="data?.articles.data?.length > 0"
+          :articles="data?.articles.data"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
 import gql from "graphql-tag";
-import { useQuery } from "@vue/apollo-composable";
-// import { watch } from "vue";
+import { useQuery, useResult } from "@vue/apollo-composable";
 
-// import ArticlesList from "./ArticlesList.vue";
+import ArticlesList from "./ArticlesList.vue";
 
-const articles = ref([]);
-
-onMounted(async () => {
-  const query = gql`
-    query Articles {
-      articles {
-        data {
-          attributes {
-            slug
-            title
-            category {
-              data {
-                attributes {
-                  slug
-                  name
-                }
+const query = gql`
+  query Articles {
+    articles {
+      data {
+        attributes {
+          slug
+          title
+          category {
+            data {
+              attributes {
+                slug
+                name
               }
             }
-            image {
-              data {
-                attributes {
-                  url
-                }
+          }
+          image {
+            data {
+              attributes {
+                url
               }
             }
           }
         }
       }
     }
-  `;
-  const { result } = await useQuery(query);
+  }
+`;
+const { result } = useQuery(query);
 
-  articles.value = result;
-});
+const data = useResult(result, null, (data) => data);
 </script>

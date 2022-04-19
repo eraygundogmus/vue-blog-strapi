@@ -67,29 +67,23 @@
   </div>
 </template>
 
-<script>
-export default {
-  data: function () {
-    return {
-      api_url: import.meta.env.VUE_APP_STRAPI_API_URL,
-    };
+<script setup>
+import { ref, defineProps, computed } from "vue";
+const props = defineProps({
+  articles: {
+    type: Array,
   },
-  props: {
-    articles: Object,
-  },
-  computed: {
-    leftArticlesCount() {
-      return Math.ceil(this.articles.data.length / 5);
-    },
-    leftArticles() {
-      return this.articles.data.slice(0, this.leftArticlesCount);
-    },
-    rightArticles() {
-      return this.articles.data.slice(
-        this.leftArticlesCount,
-        this.articles.data.length
-      );
-    },
-  },
-};
+});
+
+const api_url = "http://localhost:1337";
+
+const leftArticlesCount = computed(() =>
+  Math.ceil(props?.articles?.length / 5)
+);
+const leftArticles = computed(() => {
+  return props.articles?.slice(0, leftArticlesCount.value);
+});
+const rightArticles = computed(() => {
+  return props.articles?.slice(leftArticlesCount.value, props.articles.length);
+});
 </script>
