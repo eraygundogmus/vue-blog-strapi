@@ -5,10 +5,11 @@ module.exports = {
     defineEmits: 'readonly',
     defineProps: 'readonly',
   },
+
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
     // sourceType: 'module',
   },
-  rules: {},
+  rules: { 'vue/multi-word-component-names': 'off' },
 }

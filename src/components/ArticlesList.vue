@@ -4,9 +4,9 @@
       <div>
         <router-link
           v-for="article in leftArticles"
+          :key="article.attributes.slug"
           :to="{ path: '/article/' + article.attributes.slug }"
           class="uk-link-reset"
-          :key="article.attributes.slug"
         >
           <div class="uk-card uk-card-muted">
             <div class="uk-card-media-top">
@@ -18,8 +18,8 @@
             </div>
             <div class="uk-card-body">
               <p
-                id="category"
                 v-if="article.attributes.category"
+                id="category"
                 class="uk-text-uppercase"
               >
                 {{ article.attributes.category.data.attributes.name }}
@@ -35,9 +35,9 @@
         <div class="uk-child-width-1-2@m uk-grid-match" uk-grid>
           <router-link
             v-for="article in rightArticles"
+            :key="article.attributes.slug"
             :to="{ path: '/article/' + article.attributes.slug }"
             class="uk-link-reset"
-            :key="article.attributes.slug"
           >
             <div class="uk-card uk-card-muted">
               <div class="uk-card-media-top">
@@ -49,8 +49,8 @@
               </div>
               <div class="uk-card-body">
                 <p
-                  id="category"
                   v-if="article.attributes.category"
+                  id="category"
                   class="uk-text-uppercase"
                 >
                   {{ article.attributes.category.data.attributes.name }}
@@ -67,11 +67,12 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
   import { computed } from 'vue'
   const props = defineProps({
     articles: {
       type: Array,
+      default: () => [],
     },
   })
 
@@ -80,10 +81,10 @@
   const leftArticlesCount = computed(() =>
     Math.ceil(props?.articles?.length / 5)
   )
-  const leftArticles = computed(() => {
+  const leftArticles: any = computed(() => {
     return props.articles?.slice(0, leftArticlesCount.value)
   })
-  const rightArticles = computed(() => {
+  const rightArticles: any = computed(() => {
     return props.articles?.slice(leftArticlesCount.value, props.articles.length)
   })
 </script>
