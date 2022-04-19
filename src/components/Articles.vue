@@ -13,39 +13,39 @@
 </template>
 
 <script setup>
-import gql from "graphql-tag";
-import { useQuery, useResult } from "@vue/apollo-composable";
+  import gql from 'graphql-tag'
+  import { useQuery, useResult } from '@vue/apollo-composable'
 
-import ArticlesList from "./ArticlesList.vue";
+  import ArticlesList from './ArticlesList.vue'
 
-const query = gql`
-  query Articles {
-    articles {
-      data {
-        attributes {
-          slug
-          title
-          category {
-            data {
-              attributes {
-                slug
-                name
+  const query = gql`
+    query Articles {
+      articles {
+        data {
+          attributes {
+            slug
+            title
+            category {
+              data {
+                attributes {
+                  slug
+                  name
+                }
               }
             }
-          }
-          image {
-            data {
-              attributes {
-                url
+            image {
+              data {
+                attributes {
+                  url
+                }
               }
             }
           }
         }
       }
     }
-  }
-`;
-const { result } = useQuery(query);
+  `
+  const { result } = useQuery(query)
 
-const data = useResult(result, null, (data) => data);
+  const data = useResult(result, null, (data) => data)
 </script>

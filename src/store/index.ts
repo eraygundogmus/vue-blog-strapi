@@ -1,17 +1,17 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 
-export const useStore = defineStore("main", {
+export const useStore = defineStore('main', {
   state: () => {
     return {
       counter: 0,
-    };
+    }
   },
   getters: {
     doubleCount: (state) => state.counter * 2,
   },
   actions: {
     increment() {
-      this.counter++;
+      this.counter++
     },
   },
-});
+})

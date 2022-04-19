@@ -68,22 +68,22 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-const props = defineProps({
-  articles: {
-    type: Array,
-  },
-});
+  import { computed } from 'vue'
+  const props = defineProps({
+    articles: {
+      type: Array,
+    },
+  })
 
-const api_url = "http://localhost:1337";
+  const api_url = 'http://localhost:1337'
 
-const leftArticlesCount = computed(() =>
-  Math.ceil(props?.articles?.length / 5)
-);
-const leftArticles = computed(() => {
-  return props.articles?.slice(0, leftArticlesCount.value);
-});
-const rightArticles = computed(() => {
-  return props.articles?.slice(leftArticlesCount.value, props.articles.length);
-});
+  const leftArticlesCount = computed(() =>
+    Math.ceil(props?.articles?.length / 5)
+  )
+  const leftArticles = computed(() => {
+    return props.articles?.slice(0, leftArticlesCount.value)
+  })
+  const rightArticles = computed(() => {
+    return props.articles?.slice(leftArticlesCount.value, props.articles.length)
+  })
 </script>
