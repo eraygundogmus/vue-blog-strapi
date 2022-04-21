@@ -1,13 +1,9 @@
 <template>
-  <div>
-    <div class="uk-section">
-      <div class="uk-container uk-container-large">
-        <ArticlesList
-          v-if="data?.articles.data?.length > 0"
-          :articles="data?.articles.data"
-        />
-      </div>
-    </div>
+  <div class="articles">
+    <ArticlesList
+      v-if="data?.articles.data?.length > 0"
+      :articles="data?.articles.data"
+    />
   </div>
 </template>
 

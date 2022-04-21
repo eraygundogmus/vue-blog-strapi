@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <el-main class="blog">
     <Articles />
-  </div>
+  </el-main>
 </template>

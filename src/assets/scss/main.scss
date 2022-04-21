@@ -1,3 +1,6 @@
+body {
+  margin: 0;
+}
 #app {
   position: relative;
   z-index: 2;
@@ -16,12 +19,12 @@ strong {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.home {
+.about {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.052);
   flex-direction: column;
   .avatar img {
-    width: 220px;
+    width: 220px !important;
     border-radius: 50%;
     opacity: 0.7;
   }
@@ -51,7 +54,7 @@ strong {
     justify-content: center;
     gap: 5px;
     &-icon img {
-      width: 25px;
+      width: 25px !important;
       border-radius: 50%;
       &:hover {
         opacity: 0.6;
@@ -59,13 +62,21 @@ strong {
     }
   }
 }
+.el-menu--horizontal > .el-sub-menu .el-sub-menu__title:hover {
+  background-color: rgba(255, 255, 255, 0.01) !important;
+}
 
 .el {
   &-header {
     margin: 10px 0;
   }
+  &-popper {
+    border: 1px solid grey !important;
+    background-color: rgba(255, 255, 255, 0.01) !important;
+  }
   &-menu {
     justify-content: center;
+
     &-item {
       color: rgba(255, 255, 255, 0.6) !important;
     }
@@ -73,9 +84,15 @@ strong {
       border: none;
     }
   }
+
   &-footer {
     font-size: 12px;
     text-align: center;
+  }
+  &-image {
+    &__inner {
+      width: 500px !important;
+    }
   }
   &-collapse {
     border: none !important;
@@ -107,4 +124,44 @@ strong {
 img:hover {
   opacity: 1;
   transition: opacity 0.25s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.infinite-list {
+  height: 500px;
+  background-color: none;
+  &-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    color: white;
+  }
+}
+
+.blog {
+  background-color: rgba(255, 255, 255, 0.052);
+}
+.articles {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+}
+
+.article-content {
+  padding: 10px;
+}
+
+.bookmarks {
+  background-color: rgba(255, 255, 255, 0.052);
+  text-align: center;
+  h1 {
+    padding: 200px 0;
+  }
+}
+
+.home {
+  background-color: rgba(255, 255, 255, 0.052);
+  text-align: center;
+  h1 {
+    padding: 200px 0;
+  }
 }

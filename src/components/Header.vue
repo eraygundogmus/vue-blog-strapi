@@ -28,10 +28,8 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
   import { useRouter } from 'vue-router'
   const router = useRouter()
-  const activeIndex = ref('1')
   const handleSelect = (key: string) => {
     router.push(`/${key}`)
     if (key === 'home') {

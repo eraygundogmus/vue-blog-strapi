@@ -1,5 +1,5 @@
 <template>
-  <div>
-    <h1>Hello</h1>
-  </div>
+  <el-main class="bookmarks">
+    <h1>Coming soon!</h1>
+  </el-main>
 </template>

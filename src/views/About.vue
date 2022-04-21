@@ -1,5 +1,5 @@
 <template>
-  <el-main class="home">
+  <el-main class="about">
     <h3 class="title">Eray Gündoğmuş</h3>
     <el-image class="avatar" :src="getImageUrl('avatar.jpeg')" />
     <div class="social-media">
