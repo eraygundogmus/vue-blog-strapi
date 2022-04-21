@@ -9,16 +9,25 @@ canvas {
   position: absolute;
   top: 0;
 }
+footer {
+  margin: 20px;
+}
+strong {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .home {
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.052);
   flex-direction: column;
   .avatar img {
     width: 220px;
     border-radius: 50%;
+    opacity: 0.7;
   }
   .title {
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.6);
   }
   .description {
     margin: 30px;
@@ -28,7 +37,7 @@ canvas {
     margin-right: auto;
     max-width: 600px;
     * {
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.6);
     }
     p {
       padding: 0;
@@ -52,10 +61,13 @@ canvas {
 }
 
 .el {
+  &-header {
+    margin: 10px 0;
+  }
   &-menu {
     justify-content: center;
     &-item {
-      color: rgba(255, 255, 255, 0.4) !important;
+      color: rgba(255, 255, 255, 0.6) !important;
     }
     &--horizontal {
       border: none;
@@ -69,17 +81,24 @@ canvas {
     border: none !important;
     &-item {
       &__wrap {
-        background-color: rgba(0, 0, 0, 0.413) !important;
-        border-bottom-color: rgba(255, 255, 255, 0.566) !important;
+        background-color: rgba(0, 0, 0, 0.2) !important;
+        border-bottom-color: rgba(255, 255, 255, 0.6) !important;
       }
       &__header {
         color: rgba(190, 187, 187, 0.667) !important;
-        border-bottom-color: rgba(255, 255, 255, 0.566) !important;
+        border-bottom-color: rgba(255, 255, 255, 0.6) !important;
         background-color: none !important;
         background: none !important;
       }
       &__content {
+        padding: 10px;
         margin-top: 20px;
+        li {
+          &::marker {
+            font-size: 10px;
+            color: rgba(190, 187, 187, 0.667);
+          }
+        }
       }
     }
   }
