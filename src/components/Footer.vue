@@ -1,3 +1,5 @@
 <template>
-  <el-footer> This project powered by Vite, Vue 3 and Strapi </el-footer>
+  <el-footer>
+    This project powered by Vite, Vue 3, ThreeJs and Strapi
+  </el-footer>
 </template>

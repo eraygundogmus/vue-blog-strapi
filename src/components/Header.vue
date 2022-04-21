@@ -4,6 +4,7 @@
       :default-active="activeIndex"
       class="el-menu-demo"
       mode="horizontal"
+      background-color="none"
       @select="handleSelect"
     >
       <el-menu-item index="1">About</el-menu-item>

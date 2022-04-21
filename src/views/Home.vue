@@ -28,9 +28,9 @@
                 </el-col>
               </el-row>
             </div>
-            <div v-else>
-              <p>{{ item.desc }}</p>
-            </div>
+            <p v-else>
+              {{ item.desc }}
+            </p>
           </el-collapse-item>
         </el-collapse>
       </div>
