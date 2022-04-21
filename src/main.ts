@@ -6,6 +6,7 @@ import router from './router'
 import { createPinia } from 'pinia'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import './assets/scss/main.scss'
 
 const apolloClient = new ApolloClient({
   uri: 'http://localhost:1337/graphql',

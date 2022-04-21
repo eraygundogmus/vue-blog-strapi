@@ -1,24 +1,40 @@
 <template>
   <el-main class="home">
     <h3 class="title">Eray Gündoğmuş</h3>
-    <el-image :src="getImageUrl('avatar.jpeg')" />
+    <el-image class="avatar" :src="getImageUrl('avatar.jpeg')" />
+    <div class="social-media">
+      <el-image class="social-media-icon" :src="getImageUrl('github.png')" />
+      <el-image class="social-media-icon" :src="getImageUrl('twitter.png')" />
+      <el-image class="social-media-icon" :src="getImageUrl('medium.png')" />
+      <el-image class="social-media-icon" :src="getImageUrl('email.png')" />
+    </div>
     <div class="description">
       I am a Frontend Dev. and I work at <strong>Teknasyon.</strong>
     </div>
     <el-main>
-      <el-collapse class="collapse">
-        <el-collapse-item
-          v-for="item in collapse"
-          :key="item.name"
-          :title="item.title"
-          :name="item.name"
-        >
-          <div>
-            {{ item.desc }}
-          </div>
-        </el-collapse-item>
-      </el-collapse></el-main
-    >
+      <div class="collapse-wrapper">
+        <el-collapse>
+          <el-collapse-item
+            v-for="item in collapse"
+            :key="item.name"
+            :title="item.title"
+            :name="item.name"
+          >
+            <div v-if="Array.isArray(item.desc)">
+              <el-row>
+                <el-col v-for="i in item.desc" :key="i.desc" :span="24">
+                  <strong>{{ i.title }}</strong>
+                  <p v-for="x in i.desc" :key="x">{{ x }}</p>
+                </el-col>
+              </el-row>
+            </div>
+            <div v-else>
+              <p>{{ item.desc }}</p>
+            </div>
+          </el-collapse-item>
+        </el-collapse>
+      </div>
+    </el-main>
   </el-main>
 </template>
 
@@ -29,55 +45,67 @@
 
   const collapse: Array<any> = [
     {
-      title: 'Background',
+      title: 'Brief',
       name: '1',
-      desc: 'Consistent with real life: in line with the process and logic of real life, and comply with languages and habits that the users are used to',
+      desc: 'My main goal in frontend is to create a smooth user experience while maintaining design, semantics, and code quality and keep improve my hands-on code skills. I am a quick learner, self-disciplined, full-time bug fixer and a JavaScript lover.',
     },
     {
-      title: 'Consistency',
+      title: 'Experiences',
       name: '2',
-      desc: 'Consistent with real life: in line with the process and logic of real life, and comply with languages and habits that the users are used to',
+      desc: [
+        {
+          title: 'Teknasyon',
+          desc: [
+            'Experience developing high-traffic applications in GetContact team with most skilled engineers in country.',
+            'Use Vue3, Bootstrap 5, Storybook, Vuex, Nuxt and CoreJS',
+            'Learning better communicate and leadership with a coach',
+          ],
+        },
+        {
+          title: 'ICS Defense',
+          desc: [
+            'Developing new features, functionality and capabilities on the main project ICS Sight using Vue, Vuex, vue- echarts, axios, vue-wait, vuedraggable, d3 and SCSS.',
+            'Created two JAMStack websites using Next, MDX, and TailwindCSS in one, and Nuxt, Strapi, SCSS in the other, both including i18n support.',
+            'Daily maintenance of code, debugging issues and solving clients problems',
+            'Working with an agile team of 11 members and provided end-to-end solutions for clients',
+            'I had the responsibility to train one people the frontend basics and helped them develop further',
+          ],
+        },
+        {
+          title: 'Tech Chaps',
+          desc: [
+            'Succesfully developed client-side of Clubbie platform by using Next, SCSS, CSS Modules',
+            'Implemented a factory pattern for HTTP services to connect backend and frontend.',
+            'Collabrated with other team members, did code reviews and resolved conflicts for client side.',
+            'Worked with backend engineers to see projects through, from onception to completion',
+          ],
+        },
+        {
+          title: 'Freelance',
+          desc: [
+            'Mostly used HTML, CSS and WordPress to create websites. In June 2020, I decided to improve my software developer skills, continue as a developer instead of designer. And I started to follow a frontend developer roadmap. Since then, I develop projects and improve myself as a frontend developer.',
+            'I spend time to understand terms such as user experience, wireframing, prototyping and I tried to implement my design knowledge and design eye into UI.',
+            'Hands-on experience in UI kits, CSS frameworks',
+            'Worked design softwares such as Figma, AdobeXd, Blender. Photoshop.',
+          ],
+        },
+      ],
     },
+
     {
-      title: 'Feedback',
-      name: '3',
-      desc: 'Consistent with real life: in line with the process and logic of real life, and comply with languages and habits that the users are used to',
-    },
-    {
-      title: 'Efficiency',
+      title: 'Technical Skills',
       name: '4',
       desc: 'Consistent with real life: in line with the process and logic of real life, and comply with languages and habits that the users are used to',
     },
     {
-      title: 'Controllability',
+      title: 'Soft Skills',
       name: '5',
       desc: 'Consistent with real life: in line with the process and logic of real life, and comply with languages and habits that the users are used to',
     },
+    {
+      title: 'Background',
+      name: '3',
+      desc: 'Consistent with real life: in line with the process and logic of real life, and comply with languages and habits that the users are used to',
+    },
   ]
-  // import Nav from '@/components/Nav.vue'
-
-  // import gql from "graphql-tag";
-  // export default {
-  //   name: "Nav",
-  //   data() {
-  //     return {
-  //       categories: [],
-  //     };
-  //   },
-  //   apollo: {
-  //     categories: gql`
-  //       query Categories {
-  //         categories {
-  //           data {
-  //             id
-  //             attributes {
-  //               slug
-  //               name
-  //             }
-  //           }
-  //         }
-  //       }
-  //     `,
-  //   },
-  // };
 </script>

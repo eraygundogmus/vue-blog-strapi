@@ -2,9 +2,6 @@
   <div id="app">
     <Header />
     <router-view :key="$route.fullPath"></router-view>
+    <Footer />
   </div>
 </template>
-
-<style lang="scss">
-  @import url('./assets/scss/main.scss');
-</style>
