@@ -29,6 +29,7 @@ strong {
     opacity: 0.7;
   }
   .title {
+    padding-top: 20px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.6);
   }
@@ -91,7 +92,7 @@ strong {
   }
   &-image {
     &__inner {
-      width: 500px !important;
+      max-width: 550px !important;
     }
   }
   &-collapse {
