@@ -25,7 +25,4 @@ export default defineConfig({
   optimizeDeps: {
     include: ['@apollo/client/core', '@apollo/client/cache'],
   },
-  rollupInputOptions: {
-    external: ['react'],
-  },
 })

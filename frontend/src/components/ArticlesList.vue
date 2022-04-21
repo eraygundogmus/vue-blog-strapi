@@ -47,5 +47,5 @@
     count.value += 1
     articlesInfinite.value = props?.articles.slice(0, count.value)
   }
-  const api_url = 'http://localhost:1337'
+  const api_url = import.meta.env.VITE_APP_STRAPI_API_URL
 </script>

@@ -9,7 +9,7 @@ import 'element-plus/dist/index.css'
 import './assets/scss/main.scss'
 
 const apolloClient = new ApolloClient({
-  uri: 'http://localhost:1337/graphql',
+  uri: import.meta.env.VITE_APP_GRAPHQL_URL,
 })
 const app = createApp({
   setup() {
