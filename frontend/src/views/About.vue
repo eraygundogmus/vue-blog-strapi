@@ -106,7 +106,7 @@
 
     {
       stack: true,
-      title: 'Technical Stack',
+      title: 'Tech Stack',
       name: '4',
       // desc: 'Consistent with real life: in line with the process and logic of real life, and comply with languages and habits that the users are used to',
     },
