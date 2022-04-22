@@ -19,14 +19,6 @@
             slug
             title
             description
-            category {
-              data {
-                attributes {
-                  slug
-                  name
-                }
-              }
-            }
             image {
               data {
                 attributes {
