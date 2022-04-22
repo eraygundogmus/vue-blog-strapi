@@ -19,7 +19,7 @@ const routes: Array<any> = [
   {
     path: '',
     name: 'Home',
-    component: () => Home,
+    component: () => About,
   },
   {
     path: '/bookmarks',

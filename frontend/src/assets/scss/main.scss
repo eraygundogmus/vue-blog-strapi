@@ -95,6 +95,9 @@ strong {
       max-width: 550px !important;
     }
   }
+  &-popover.el-popper {
+    background-color: rgb(255, 255, 255, 1) !important;
+  }
   &-collapse {
     border: none !important;
     &-item {
