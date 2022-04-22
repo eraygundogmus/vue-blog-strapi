@@ -11,7 +11,9 @@
       >
         <template #reference>
           <el-button style="margin: 10px">
-            {{ item?.attributes?.name }}
+            <a target="_blank" :href="item?.attributes?.url">
+              {{ item?.attributes?.name }}
+            </a>
           </el-button>
         </template>
       </el-popover>
