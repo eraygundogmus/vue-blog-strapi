@@ -134,7 +134,23 @@ img:hover {
     align-items: center;
     justify-content: center;
     margin: 10px;
+    a {
+      text-decoration: none !important;
+    }
+
     color: white;
+    .article-content {
+      padding: 10px;
+      p {
+        margin: 0;
+      }
+      span {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 12px;
+        text-decoration: none;
+      }
+    }
   }
 }
 
@@ -145,10 +161,6 @@ img:hover {
   margin-left: auto;
   margin-right: auto;
   max-width: 900px;
-}
-
-.article-content {
-  padding: 10px;
 }
 
 .bookmarks {
@@ -164,5 +176,19 @@ img:hover {
   text-align: center;
   h1 {
     padding: 200px 0;
+  }
+}
+.stack {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  img {
+    align-self: center;
+    justify-self: center;
+    padding: 5px;
+    height: 50px;
+    object-fit: contain;
+    border: 1px solid rgb(255, 255, 255, 0.2);
+    border-radius: 3px;
   }
 }

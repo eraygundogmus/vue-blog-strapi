@@ -22,6 +22,7 @@ declare module '@vue/runtime-core' {
     InfiniteScroll: typeof import('element-plus/es')['ElInfiniteScroll']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Stack: typeof import('./src/components/Stack.vue')['default']
   }
 }
 

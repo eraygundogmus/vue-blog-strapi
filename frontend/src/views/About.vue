@@ -3,12 +3,14 @@
     <h3 class="title">Eray Gündoğmuş</h3>
     <el-image class="avatar" :src="getImageUrl('avatar.jpeg')" />
     <div class="social-media">
-      <el-image
-        v-for="icon in ['github.png', 'twitter.png', 'medium.png', 'email.png']"
-        :key="icon"
-        :src="getImageUrl(icon)"
-        class="social-media-icon"
-      />
+      <a
+        v-for="item in socials"
+        :key="item.url"
+        target="_blank"
+        :href="item.url"
+      >
+        <el-image :src="getImageUrl(item.icon)" class="social-media-icon" />
+      </a>
     </div>
     <div class="description">
       I am a Frontend Dev. and I work at <strong>Teknasyon.</strong>
@@ -22,6 +24,7 @@
             :title="item.title"
             :name="item.name"
           >
+            <Stack v-if="item.stack" />
             <div v-if="Array.isArray(item.desc)">
               <el-row>
                 <el-col v-for="i in item.desc" :key="i.desc" :span="24">
@@ -45,6 +48,13 @@
     return new URL(`../assets/images/${name}`, import.meta.url).href
   }
 
+  const socials: Array<any> = [
+    { icon: 'github.png', url: 'https://github.com/eraygundogmus' },
+    { icon: 'twitter.png', url: 'https://twitter.com/eraygundgms' },
+    { icon: 'medium.png', url: 'https://medium.com/@gundogmuseray' },
+    { icon: 'linkedin.png', url: 'https://www.linkedin.com/in/eraygundogmus/' },
+    { icon: 'email.png', url: 'mailto:gundogmuseray@gmail.com' },
+  ]
   const collapse: Array<any> = [
     {
       title: 'Brief',
@@ -95,19 +105,20 @@
     },
 
     {
-      title: 'Technical Skills',
+      stack: true,
+      title: 'Technical Stack',
       name: '4',
-      desc: 'Consistent with real life: in line with the process and logic of real life, and comply with languages and habits that the users are used to',
+      // desc: 'Consistent with real life: in line with the process and logic of real life, and comply with languages and habits that the users are used to',
     },
     {
       title: 'Soft Skills',
       name: '5',
-      desc: 'Consistent with real life: in line with the process and logic of real life, and comply with languages and habits that the users are used to',
+      desc: 'Communication, empathy, patience, open-mindedness and adaptability, critical thinking, creativity, and problem-solving, accountability, humility, and humbleness, confidence, management(people, time and project), teamwork and collaboration',
     },
-    {
-      title: 'Background',
-      name: '3',
-      desc: 'Consistent with real life: in line with the process and logic of real life, and comply with languages and habits that the users are used to',
-    },
+    // {
+    //   title: 'Background',
+    //   name: '3',
+    //   desc: '',
+    // },
   ]
 </script>

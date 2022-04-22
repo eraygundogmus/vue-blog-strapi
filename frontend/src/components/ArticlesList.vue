@@ -23,6 +23,9 @@
               <p>
                 {{ article.attributes.title }}
               </p>
+              <span>
+                {{ article.attributes.description }}
+              </span>
             </div>
           </router-link>
         </el-col>
