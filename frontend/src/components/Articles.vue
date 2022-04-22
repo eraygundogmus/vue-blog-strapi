@@ -1,9 +1,6 @@
 <template>
   <div class="articles">
-    <ArticlesList
-      v-if="data?.articles.data?.length > 0"
-      :articles="data?.articles.data"
-    />
+    <ArticlesList :articles="data?.articles.data" :loading="loading" />
   </div>
 </template>
 
@@ -31,7 +28,7 @@
       }
     }
   `
-  const { result } = useQuery(query)
+  const { result, loading } = useQuery(query)
 
   const data = useResult(result, null, (data) => data)
 </script>
