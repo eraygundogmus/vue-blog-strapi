@@ -23,12 +23,7 @@
               class="article-content__image"
               :src="api_url + article.attributes.image.data.attributes.url"
             >
-              <template #placeholder>
-                <el-skeleton-item
-                  variant="image"
-                  class="article-content__image"
-                /> </template
-            ></el-image>
+            </el-image>
             <p>
               {{ article.attributes.title }}
             </p>
