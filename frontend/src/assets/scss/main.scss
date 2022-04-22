@@ -95,8 +95,15 @@ strong {
       max-width: 550px !important;
     }
   }
+  &-button {
+    background-color: rgb(255, 255, 255, 0.8) !important;
+    span a {
+      color: rgb(0, 0, 0, 0.7) !important;
+    }
+  }
   &-popover.el-popper {
-    background-color: rgb(255, 255, 255, 1) !important;
+    background-color: rgb(211, 206, 206) !important;
+    color: rgb(0, 0, 0, 0.7) !important;
   }
   &-collapse {
     border: none !important;
@@ -169,8 +176,17 @@ img:hover {
 .bookmarks {
   background-color: rgba(255, 255, 255, 0.052);
   text-align: center;
-  h1 {
-    padding: 200px 0;
+  min-height: 450px;
+  &-row {
+    margin-left: auto;
+    margin-right: auto;
+
+    max-width: 700px;
+  }
+  h3 {
+    margin-top: 20px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
   }
 }
 

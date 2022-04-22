@@ -1,6 +1,8 @@
 <template>
   <el-main class="bookmarks">
-    <el-row justify="center">
+    <h3>Here is a list of my bookmarks</h3>
+
+    <el-row class="bookmarks-row" justify="center">
       <el-popover
         v-for="item in data?.categories?.data"
         :key="item?.attributes.name"
