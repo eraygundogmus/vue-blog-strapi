@@ -17,7 +17,7 @@
     </div>
     <el-main>
       <div class="collapse-wrapper">
-        <el-collapse>
+        <el-collapse v-model="activeItems" @change="handleChange">
           <el-collapse-item
             v-for="item in collapse"
             :key="item.name"
@@ -44,8 +44,15 @@
 </template>
 
 <script setup lang="ts">
+  import { ref } from 'vue'
+
   const getImageUrl = (name: string) => {
     return new URL(`../assets/images/${name}`, import.meta.url).href
+  }
+
+  const activeItems: any = ref(['1', '2', '3', '4', '5'])
+  const handleChange: any = (val: string[]) => {
+    console.log(val)
   }
 
   const socials: Array<any> = [
