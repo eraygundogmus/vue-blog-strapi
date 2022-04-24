@@ -8,7 +8,7 @@
       @select="handleSelect"
     >
       <el-menu-item index="About">About</el-menu-item>
-      <el-menu-item index="Home">Home</el-menu-item>
+      <!-- <el-menu-item index="Home">Home</el-menu-item> -->
 
       <el-menu-item index="Blog">Blog</el-menu-item>
 
