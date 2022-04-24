@@ -4,12 +4,12 @@ body {
 #app {
   position: relative;
   z-index: 2;
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
+  main {
+    min-height: 500px;
+  }
 }
 canvas {
-  position: absolute;
+  position: fixed;
   top: 0;
 }
 footer {
@@ -138,12 +138,10 @@ img:hover {
 }
 .infinite-list {
   height: 500px;
-  background-color: none;
   &-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px;
     a {
       text-decoration: none !important;
     }
