@@ -4,7 +4,7 @@
     <el-image class="avatar" :src="getImageUrl('avatar.jpeg')" />
     <div class="social-media">
       <a
-        v-for="item in socials"
+        v-for="item in data?.abouts?.data[0]?.attributes?.collapse?.socials"
         :key="item.url"
         target="_blank"
         :href="item.url"
@@ -13,18 +13,20 @@
       </a>
     </div>
     <div class="description">
-      I am a Frontend Dev. and I work at <strong>Teknasyon.</strong>
+      {{ data?.abouts?.data[0]?.attributes?.description }}
+      <strong>Teknasyon.</strong>
     </div>
     <el-main>
       <div class="collapse-wrapper">
-        <el-collapse v-model="activeItems" @change="handleChange">
+        <el-collapse v-if="data" v-model="activeItems">
           <el-collapse-item
-            v-for="item in collapse"
+            v-for="(item, index) in data?.abouts?.data[0]?.attributes?.collapse
+              ?.collapse"
             :key="item.name"
             :title="item.title"
-            :name="item.name"
+            :name="index + 1"
           >
-            <Stack v-if="item.stack" />
+            <Stack v-if="item.stack" :stack="item.stackArray" />
             <div v-if="Array.isArray(item.desc)">
               <el-row>
                 <el-col v-for="i in item.desc" :key="i.desc" :span="24">
@@ -45,87 +47,29 @@
 
 <script setup lang="ts">
   import { ref } from 'vue'
+  import gql from 'graphql-tag'
+  import { useQuery, useResult } from '@vue/apollo-composable'
+
+  const query = gql`
+    query About {
+      abouts {
+        data {
+          attributes {
+            name
+            description
+            collapse
+          }
+        }
+      }
+    }
+  `
+  const { result } = useQuery(query)
+
+  const data = useResult(result, null, (data) => data)
 
   const getImageUrl = (name: string) => {
     return new URL(`../assets/images/${name}`, import.meta.url).href
   }
 
-  const activeItems: any = ref(['1', '2', '3', '4', '5'])
-  const handleChange: any = (val: string[]) => {
-    console.log(val)
-  }
-
-  const socials: Array<any> = [
-    { icon: 'github.png', url: 'https://github.com/eraygundogmus' },
-    { icon: 'twitter.png', url: 'https://twitter.com/eraygundgms' },
-    { icon: 'medium.png', url: 'https://medium.com/@gundogmuseray' },
-    { icon: 'linkedin.png', url: 'https://www.linkedin.com/in/eraygundogmus/' },
-    { icon: 'email.png', url: 'mailto:gundogmuseray@gmail.com' },
-  ]
-  const collapse: Array<any> = [
-    {
-      title: 'Brief',
-      name: '1',
-      desc: 'My main goal in frontend is to create a smooth user experience while maintaining design, semantics, and code quality and keep improve my hands-on code skills. I am a quick learner, self-disciplined, full-time bug fixer and a JavaScript lover.',
-    },
-    {
-      title: 'Experiences',
-      name: '2',
-      desc: [
-        {
-          title: 'Teknasyon',
-          desc: [
-            'Experience developing high-traffic applications in GetContact team with most skilled engineers in country.',
-            'Use Vue3, Bootstrap 5, Storybook, Vuex, Nuxt and CoreJS',
-            'Learning better communicate and leadership with a coach',
-          ],
-        },
-        {
-          title: 'ICS Defense',
-          desc: [
-            'Developing new features, functionality and capabilities on the main project ICS Sight using Vue, Vuex, vue- echarts, axios, vue-wait, vuedraggable, d3 and SCSS.',
-            'Created two JAMStack websites using Next, MDX, and TailwindCSS in one, and Nuxt, Strapi, SCSS in the other, both including i18n support.',
-            'Daily maintenance of code, debugging issues and solving clients problems',
-            'Working with an agile team of 11 members and provided end-to-end solutions for clients',
-            'I had the responsibility to train one people the frontend basics and helped them develop further',
-          ],
-        },
-        {
-          title: 'Tech Chaps',
-          desc: [
-            'Succesfully developed client-side of Clubbie platform by using Next, SCSS, CSS Modules',
-            'Implemented a factory pattern for HTTP services to connect backend and frontend.',
-            'Collabrated with other team members, did code reviews and resolved conflicts for client side.',
-            'Worked with backend engineers to see projects through, from onception to completion',
-          ],
-        },
-        {
-          title: 'Freelance',
-          desc: [
-            'Mostly used HTML, CSS and WordPress to create websites. In June 2020, I decided to improve my software developer skills, continue as a developer instead of designer. And I started to follow a frontend developer roadmap. Since then, I develop projects and improve myself as a frontend developer.',
-            'I spend time to understand terms such as user experience, wireframing, prototyping and I tried to implement my design knowledge and design eye into UI.',
-            'Hands-on experience in UI kits, CSS frameworks',
-            'Worked design softwares such as Figma, AdobeXd, Blender. Photoshop.',
-          ],
-        },
-      ],
-    },
-
-    {
-      stack: true,
-      title: 'Tech Stack',
-      name: '4',
-      // desc: 'Consistent with real life: in line with the process and logic of real life, and comply with languages and habits that the users are used to',
-    },
-    {
-      title: 'Soft Skills',
-      name: '5',
-      desc: 'Communication, empathy, patience, open-mindedness and adaptability, critical thinking, creativity, and problem-solving, accountability, humility, and humbleness, confidence, management(people, time and project), teamwork and collaboration',
-    },
-    // {
-    //   title: 'Background',
-    //   name: '3',
-    //   desc: '',
-    // },
-  ]
+  const activeItems: any = ref([1, 2, 3, 4, 5])
 </script>

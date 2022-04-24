@@ -4,36 +4,34 @@
       <el-skeleton :animated="true" style="width: 480px" :loading="loading" />
     </div>
 
-    <el-row
-      v-infinite-scroll="load"
-      class="infinite-list"
-      style="overflow: auto"
-    >
-      <el-col
-        v-for="article in articlesInfinite"
-        :key="article"
-        class="infinite-list-item"
-      >
-        <router-link
-          :key="article.attributes.slug"
-          :to="{ path: '/article/' + article.attributes.slug }"
+    <div v-infinite-scroll="load">
+      <el-row class="infinite-list" style="overflow: auto">
+        <el-col
+          v-for="article in articlesInfinite"
+          :key="article"
+          class="infinite-list-item"
         >
-          <div class="article-content">
-            <el-image
-              class="article-content__image"
-              :src="api_url + article.attributes.image.data.attributes.url"
-            >
-            </el-image>
-            <p>
-              {{ article.attributes.title }}
-            </p>
-            <span>
-              {{ article.attributes.description }}
-            </span>
-          </div>
-        </router-link>
-      </el-col>
-    </el-row>
+          <router-link
+            :key="article.attributes.slug"
+            :to="{ path: '/blog/' + article.attributes.slug }"
+          >
+            <div class="article-content">
+              <el-image
+                class="article-content__image"
+                :src="api_url + article.attributes.image.data.attributes.url"
+              >
+              </el-image>
+              <p>
+                {{ article.attributes.title }}
+              </p>
+              <span>
+                {{ article.attributes.description }}
+              </span>
+            </div>
+          </router-link>
+        </el-col>
+      </el-row>
+    </div>
   </el-main>
 </template>
 
