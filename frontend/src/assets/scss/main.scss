@@ -16,12 +16,12 @@ footer {
   margin: 20px;
 }
 strong {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .about {
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.052);
+  background-color: rgba(255, 255, 255, 0.022);
   flex-direction: column;
   .avatar img {
     width: 220px !important;
@@ -31,7 +31,7 @@ strong {
   .title {
     padding-top: 20px;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.65);
   }
   .description {
     margin: 30px;
@@ -41,7 +41,7 @@ strong {
     margin-right: auto;
     max-width: 600px;
     * {
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.65);
     }
     p {
       padding: 0;
@@ -96,9 +96,9 @@ strong {
     }
   }
   &-button {
-    background-color: rgb(255, 255, 255, 0.8) !important;
+    background-color: rgba(0, 10, 29, 0.9) !important;
     span a {
-      color: rgb(0, 0, 0, 0.7) !important;
+      color: rgba(255, 255, 255, 0.9) !important;
     }
   }
   &-popover.el-popper {
@@ -163,7 +163,7 @@ img:hover {
 }
 
 .blog {
-  background-color: rgba(255, 255, 255, 0.052);
+  background-color: rgba(255, 255, 255, 0.022);
 }
 .articles {
   margin-left: auto;
@@ -172,7 +172,7 @@ img:hover {
 }
 
 .bookmarks {
-  background-color: rgba(255, 255, 255, 0.052);
+  background-color: rgba(255, 255, 255, 0.022);
   text-align: center;
   min-height: 450px;
   &-row {
@@ -184,7 +184,7 @@ img:hover {
   h3 {
     margin-top: 20px;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.61);
   }
 }
 
