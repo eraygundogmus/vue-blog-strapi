@@ -215,3 +215,17 @@ img:hover {
   display: flex;
   justify-content: center;
 }
+
+.article {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+  text-align: center;
+  &-content {
+    h3,
+    h6 {
+      margin: 10px;
+      color: rgb(255, 255, 255, 0.6);
+    }
+  }
+}

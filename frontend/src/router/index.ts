@@ -4,6 +4,7 @@ const About = import('@/views/About.vue')
 const Blog = import('@/views/Blog.vue')
 const Bookmarks = import('@/views/Bookmarks.vue')
 // const Home = import('@/views/Home.vue')
+const Article = import('@/views/Article.vue')
 
 const routes: Array<any> = [
   {
@@ -19,7 +20,7 @@ const routes: Array<any> = [
   {
     path: '/blog/:slug',
     name: 'BlogPage',
-    component: () => Blog,
+    component: () => Article,
   },
   {
     path: '',

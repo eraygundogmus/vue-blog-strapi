@@ -11,7 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["element-plus/global"],
+    "types": ["element-plus/global", "vite/client"],
     "paths": {
       "@/*": ["./src/*"]
     },
