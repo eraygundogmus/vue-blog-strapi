@@ -1,8 +1,7 @@
 <template>
   <el-main v-if="article" class="article">
     <div class="article-content">
-      <el-image :src="api_url + article.attributes.image.data.attributes.url">
-      </el-image>
+      <el-image :src="article.attributes.image.data.attributes.url"> </el-image>
       <h3>
         {{ article.attributes.title }}
       </h3>
@@ -26,7 +25,6 @@
     setup() {
       const store = useStore()
       const router = useRouter()
-      const api_url = import.meta.env.VITE_APP_STRAPI_API_URL
 
       const route: any = computed(() => router.currentRoute.value.params.slug)
 
@@ -71,7 +69,7 @@
         article.value?.attributes?.content?.replaceAll('\n', '<br />')
       )
 
-      return { store, article, api_url, content }
+      return { store, article, content }
     },
   }
 </script>

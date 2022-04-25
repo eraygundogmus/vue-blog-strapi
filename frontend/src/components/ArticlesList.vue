@@ -16,10 +16,7 @@
             :to="{ path: '/blog/' + article.attributes.slug }"
           >
             <div class="article-content">
-              <el-image
-                class="article-content__image"
-                :src="api_url + article.attributes.image.data.attributes.url"
-              >
+              <el-image :src="article.attributes.image.data.attributes.url">
               </el-image>
               <p>
                 {{ article.attributes.title }}
@@ -54,5 +51,4 @@
     count.value += 1
     articlesInfinite.value = props?.articles.slice(0, count.value)
   }
-  const api_url = import.meta.env.VITE_APP_STRAPI_API_URL
 </script>
