@@ -28,7 +28,7 @@
 
   const query = gql`
     query Category {
-      categories(sort: "createdAt:desc", pagination: { limit: 100 }) {
+      categories {
         data {
           attributes {
             name
@@ -39,7 +39,11 @@
       }
     }
   `
-  const { result } = useQuery(query)
+
+  const { result } = useQuery(query, {
+    offset: 1,
+    limit: 50,
+  })
 
   const data = useResult(result, null, (data) => data)
 </script>
