@@ -1,7 +1,12 @@
 <template>
   <el-main class="about">
     <h1 class="title">Eray Gündoğmuş</h1>
-    <el-image class="avatar" lazy :src="getImageUrl('avatar.jpeg')" />
+    <el-image
+      class="avatar"
+      alt="avatar"
+      lazy
+      :src="getImageUrl('avatar.jpeg')"
+    />
     <div class="social-media">
       <a
         v-for="item in data?.abouts?.data[0]?.attributes?.collapse?.socials"
