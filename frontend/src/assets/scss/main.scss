@@ -46,10 +46,19 @@ strong {
   .title {
     padding-top: 20px;
     font-weight: 400;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .subtitle {
+    font-weight: 700;
+    margin: 5px;
+    font-size: 13px;
     color: rgba(255, 255, 255, 0.65);
   }
   .description {
     margin: 30px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.45);
   }
   .collapse-wrapper {
     margin-left: auto;
@@ -117,6 +126,7 @@ strong {
     }
   }
   &-popover.el-popper {
+    word-break: normal !important;
     background-color: rgb(211, 206, 206) !important;
     color: rgb(0, 0, 0, 0.7) !important;
   }
@@ -214,12 +224,17 @@ img:hover {
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  img {
-    align-self: center;
+
+  figure {
+    display: flex;
     justify-self: center;
+    padding: 0;
+    margin: 0;
+  }
+  img {
     padding: 5px;
-    height: 50px;
     object-fit: contain;
+    height: 50px;
     border: 1px solid rgb(255, 255, 255, 0.2);
     border-radius: 3px;
   }

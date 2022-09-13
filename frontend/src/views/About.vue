@@ -1,7 +1,7 @@
 <template>
   <el-main class="about">
-    <h3 class="title">Eray Gündoğmuş</h3>
-    <el-image class="avatar" :src="getImageUrl('avatar.jpeg')" />
+    <h1 class="title">Eray Gündoğmuş</h1>
+    <el-image class="avatar" lazy :src="getImageUrl('avatar.jpeg')" />
     <div class="social-media">
       <a
         v-for="item in data?.abouts?.data[0]?.attributes?.collapse?.socials"
@@ -9,13 +9,18 @@
         target="_blank"
         :href="item.url"
       >
-        <el-image :src="getImageUrl(item.icon)" class="social-media-icon" />
+        <el-image
+          lazy
+          :alt="item.icon.replace('.png', ' url')"
+          :src="getImageUrl(item.icon)"
+          class="social-media-icon"
+        />
       </a>
     </div>
-    <div class="description">
+    <h2 class="description">
       {{ data?.abouts?.data[0]?.attributes?.description }}
       <strong>Teknasyon.</strong>
-    </div>
+    </h2>
     <el-main>
       <div class="collapse-wrapper">
         <el-collapse v-if="data" v-model="activeItems">
@@ -27,17 +32,17 @@
             :name="index + 1"
           >
             <Stack v-if="item.stack" :stack="item.stackArray" />
-            <div v-if="Array.isArray(item.desc)">
+            <article v-if="Array.isArray(item.desc)">
               <el-row>
                 <el-col v-for="i in item.desc" :key="i.desc" :span="24">
-                  <strong>{{ i.title }}</strong>
-                  <li v-for="x in i.desc" :key="x">{{ x }}</li>
+                  <h4 class="subtitle">{{ i.title }}</h4>
+                  <article v-for="x in i.desc" :key="x">{{ x }}</article>
                 </el-col>
               </el-row>
-            </div>
-            <p v-else>
+            </article>
+            <article v-else>
               {{ item.desc }}
-            </p>
+            </article>
           </el-collapse-item>
         </el-collapse>
       </div>

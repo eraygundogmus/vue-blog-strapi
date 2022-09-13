@@ -1,7 +1,5 @@
 <template>
-  <div class="articles">
-    <ArticlesList :articles="data?.articles.data" :loading="loading" />
-  </div>
+  <ArticlesList :articles="data?.articles.data" :loading="loading" />
 </template>
 
 <script setup lang="ts">
