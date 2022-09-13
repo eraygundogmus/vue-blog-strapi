@@ -28,7 +28,7 @@
 
   const query = gql`
     query Category {
-      categories {
+      categories(sort: "createdAt:desc", pagination: { limit: 100 }) {
         data {
           attributes {
             name
